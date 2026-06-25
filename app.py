@@ -3,8 +3,8 @@ import pandas as pd
 import joblib
 
 app = Flask(__name__)
-feature_columns = joblib.load("feature_columns.pkl")
-# Load model
+
+# Load model only
 model = joblib.load("credit_card_fraud_model.pkl")
 
 
@@ -16,37 +16,33 @@ def home():
 @app.route("/predict", methods=["POST"])
 def predict():
     try:
-        transaction_id = int(request.form["transaction_id"])
-        amount = float(request.form["amount"])
-        transaction_hour = int(request.form["transaction_hour"])
-        merchant_category = int(request.form["merchant_category"])
-        foreign_transaction = int(request.form["foreign_transaction"])
-        location_mismatch = int(request.form["location_mismatch"])
-        device_trust_score = float(request.form["device_trust_score"])
-        velocity_last_24h = int(request.form["velocity_last_24h"])
-        cardholder_age = int(request.form["cardholder_age"])
-
         input_data = pd.DataFrame({
-            "transaction_id": [transaction_id],
-            "amount": [amount],
-            "transaction_hour": [transaction_hour],
-            "merchant_category": [merchant_category],
-            "foreign_transaction": [foreign_transaction],
-            "location_mismatch": [location_mismatch],
-            "device_trust_score": [device_trust_score],
-            "velocity_last_24h": [velocity_last_24h],
-            "cardholder_age": [cardholder_age]
+            "transaction_id": [int(request.form["transaction_id"])],
+            "amount": [float(request.form["amount"])],
+            "transaction_hour": [int(request.form["transaction_hour"])],
+            "merchant_category": [int(request.form["merchant_category"])],
+            "foreign_transaction": [int(request.form["foreign_transaction"])],
+            "location_mismatch": [int(request.form["location_mismatch"])],
+            "device_trust_score": [float(request.form["device_trust_score"])],
+            "velocity_last_24h": [int(request.form["velocity_last_24h"])],
+            "cardholder_age": [int(request.form["cardholder_age"])]
         })
 
         prediction = model.predict(input_data)[0]
 
-        probability = model.predict_proba(input_data)
-        fraud_prob = round(probability[0][1] * 100, 2)
-
-        if prediction == 1:
-            result = "🚨 Fraudulent Transaction"
+        if hasattr(model, "predict_proba"):
+            fraud_prob = round(
+                model.predict_proba(input_data)[0][1] * 100,
+                2
+            )
         else:
-            result = "✅ Legitimate Transaction"
+            fraud_prob = None
+
+        result = (
+            "🚨 Fraudulent Transaction"
+            if prediction == 1
+            else "✅ Legitimate Transaction"
+        )
 
         return render_template(
             "index.html",
@@ -57,7 +53,7 @@ def predict():
     except Exception as e:
         return render_template(
             "index.html",
-            prediction_text=f"Error: {str(e)}"
+            prediction_text=f"Error: {e}"
         )
 
 
