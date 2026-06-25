@@ -5,8 +5,13 @@ import joblib
 app = Flask(__name__)
 
 # Load model only
-model = joblib.load("credit_card_fraud_model.pkl")
+import os
+import joblib
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODEL_PATH = os.path.join(BASE_DIR, "credit_card_fraud_model.pkl")
+
+model = joblib.load(MODEL_PATH)
 
 @app.route("/")
 def home():
