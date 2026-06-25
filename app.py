@@ -1,10 +1,9 @@
-
 from flask import Flask, render_template, request
 import pandas as pd
 import joblib
 
 app = Flask(__name__)
-
+feature_columns = joblib.load("feature_columns.pkl")
 # Load model
 model = joblib.load("credit_card_fraud_model.pkl")
 
