@@ -1,102 +1,250 @@
-# 💳 Credit Card Fraud Detection using Machine Learning
+# 💳 Credit Card Fraud Detection System
 
-## 📌 Project Overview
-Credit card fraud is one of the major problems in the financial sector. This project aims to detect fraudulent credit card transactions using machine learning techniques. The system analyzes transaction patterns and predicts whether a transaction is fraudulent or legitimate.
+A Machine Learning-powered web application that detects fraudulent credit card transactions in real time using Logistic Regression and Flask.
 
----
+## 🌐 Live Demo
 
-## 🎯 Objectives
-- Detect fraudulent transactions accurately  
-- Reduce financial loss for banks and customers  
-- Apply machine learning concepts on real-world data  
+**Application:** https://credit-card-fraud-detection-1s7i.onrender.com
 
 ---
 
-## 🧠 Machine Learning Approach
-- Data preprocessing  
-- Feature scaling  
-- Handling imbalanced dataset  
-- Model training and evaluation  
+## 📖 Project Overview
+
+Credit card fraud causes significant financial losses worldwide. This project leverages Machine Learning to identify suspicious transactions based on transaction features and classify them as either **Legitimate** or **Fraudulent**.
+
+The model is trained on a highly imbalanced credit card transaction dataset and deployed as an interactive web application.
 
 ---
 
-## 🛠️ Technologies Used
+## 🚀 Key Features
+
+✅ Real-time fraud prediction
+
+✅ User-friendly web interface
+
+✅ Machine Learning based classification
+
+✅ Data preprocessing and feature scaling
+
+✅ Flask web application deployment
+
+✅ Responsive and clean UI
+
+---
+
+## 🛠️ Tech Stack
 
 ### Programming Language
-- Python 🐍
 
-### Libraries
-- NumPy  
-- Pandas  
-- Matplotlib  
-- Seaborn  
-- Scikit-learn  
+* Python
 
-### Tools
-- Jupyter Notebook  
-- Git & GitHub  
+### Machine Learning
+
+* Scikit-learn
+* Logistic Regression
+
+### Data Analysis
+
+* Pandas
+* NumPy
+
+### Data Visualization
+
+* Matplotlib
+* Seaborn
+
+### Web Development
+
+* Flask
+* HTML
+* CSS
+
+### Deployment
+
+* Render
+
+### Version Control
+
+* Git
+* GitHub
 
 ---
 
 ## 📂 Project Structure
-Credit-Card-Fraud-Detection/
+
+```bash
+Credit_Card_Fraud_Detection/
 │
-├── Credit_card_Fraud_Detection.ipynb
-├── README.md
-└── dataset.csv
+├── app.py
+├── credit_card_fraud_model.pkl
+├── feature_columns.pkl
+├── requirements.txt
+├── Procfile
+│
+├── templates/
+│   └── index.html
+│
+├── notebook/
+│   └── Credit_card_Fraud_Detection.ipynb
+│
+└── README.md
+```
 
 ---
 
-## 📊 Dataset
-- Dataset contains credit card transaction data  
-- Features are numerical (PCA transformed)  
-- Target column:
-  - 0 → Normal Transaction  
-  - 1 → Fraud Transaction  
+## 📊 Dataset Information
 
-> Note: The dataset is highly imbalanced.
+The dataset contains anonymized credit card transactions.
+
+### Target Variable
+
+| Value | Meaning                |
+| ----- | ---------------------- |
+| 0     | Legitimate Transaction |
+| 1     | Fraudulent Transaction |
+
+### Challenges
+
+* Highly imbalanced dataset
+* Fraud cases represent a very small percentage of total transactions
 
 ---
 
-## ⚙️ Workflow
-1. Import libraries  
-2. Load dataset  
-3. Exploratory Data Analysis (EDA)  
-4. Feature scaling  
-5. Train-test split  
-6. Model training  
-7. Model evaluation  
-8. Prediction  
+## ⚙️ Machine Learning Workflow
+
+### 1. Data Collection
+
+* Load transaction dataset
+
+### 2. Data Preprocessing
+
+* Missing value handling
+* Feature selection
+* Data scaling
+
+### 3. Exploratory Data Analysis (EDA)
+
+* Class distribution analysis
+* Feature correlation analysis
+
+### 4. Model Training
+
+* Train-Test Split
+* Logistic Regression Model
+
+### 5. Model Evaluation
+
+* Accuracy Score
+* Precision Score
+* Recall Score
+* Confusion Matrix
+
+### 6. Deployment
+
+* Flask Backend
+* Render Cloud Hosting
 
 ---
 
 ## 🤖 Model Used
-- Logistic Regression  
+
+### Logistic Regression
+
+Reasons for choosing Logistic Regression:
+
+* Fast training
+* Efficient for binary classification
+* Easy interpretation
+* Strong baseline performance
 
 ---
 
-## 📈 Evaluation Metrics
-- Accuracy Score  
-- Precision  
-- Recall  
-- Confusion Matrix  
+## 📈 Performance Metrics
+
+* Accuracy Score
+* Precision
+* Recall
+* F1-Score
+* Confusion Matrix
 
 ---
 
-## ✅ Results
-- Model successfully detects fraudulent transactions  
-- Performs well despite class imbalance  
+## 💡 Skills Demonstrated
+
+* Machine Learning
+* Data Preprocessing
+* Feature Engineering
+* Model Evaluation
+* Flask Development
+* Deployment
+* Git & GitHub
+* Problem Solving
 
 ---
 
-## 🚀 Future Improvements
-- Use Random Forest, XGBoost, Neural Networks  
-- Apply SMOTE technique  
-- Deploy using Flask or Streamlit  
-- Real-time fraud detection system  
+## 🔮 Future Improvements
+
+* Random Forest Classifier
+* XGBoost
+* SMOTE for class balancing
+* Deep Learning Models
+* Real-Time Transaction Monitoring
+* REST API Integration
+* Docker Deployment
+
+---
+
+## 📸 Application Preview
+
+<img width="789" height="774" alt="Screenshot 2026-06-26 at 1 10 22 AM" src="https://github.com/user-attachments/assets/d96c8c34-373a-4565-80e8-eb142cccf177" />
+<img width="844" height="237" alt="Screenshot 2026-06-26 at 1 13 25 AM" src="https://github.com/user-attachments/assets/7114fbda-f213-4ce2-925b-9503bca34245" />
+
+
+---
+
+## 🧪 Installation
+
+### Clone Repository
+
+```bash
+git clone https://github.com/sovan2006/Credit_card_Fraud_Detection.git
+```
+
+### Move to Project Directory
+
+```bash
+cd Credit_card_Fraud_Detection
+```
+
+### Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### Run Application
+
+```bash
+python app.py
+```
+
+### Open Browser
+
+```text
+http://127.0.0.1:5000
+```
 
 ---
 
 ## 👨‍💻 Author
-**Sovan Barik**  
-Machine Learning & Data Science Enthusiast  
+
+### Sovan Barik
+
+B.Tech AI & ML Student
+
+Machine Learning Enthusiast
+
+GitHub: https://github.com/sovan2006
+
+LinkedIn: www.linkedin.com/in/sovan-barik-711bba326
+
